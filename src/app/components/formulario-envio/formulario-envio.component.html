@@ -1,0 +1,73 @@
+<form [formGroup]="FormularioEnvioForm">
+    <div class="logotipo">
+        <div class="columna-titulo">
+            <p class="titulo">Green Leaves</p>
+          </div>
+          <div class="columna-imagen">
+            <img src="https://cdn.pixabay.com/photo/2014/04/03/10/28/leaf-310555_1280.png" alt="Descripción de la imagen">
+          </div>
+    </div>
+    <div class="contenido"> 
+        <label for="">Nombre</label>  
+       <div class="inputform-field">   
+        <mat-form-field appearance="fill" class="mi-form-field">
+            <input matInput placeholder="Escriba aqui" formControlName="nombre">
+        </mat-form-field>
+       </div>
+    </div>
+    <div class="contenido"> 
+        <label for="">E-mail</label> 
+        <div class="inputform-field2">
+            <mat-form-field appearance="fill" class="mi-form-field">
+                <input matInput placeholder="Escriba aqui" formControlName="email">
+            </mat-form-field>
+        </div> 
+        
+    </div>
+    <div class="contenido"> 
+        <label for="">Teléfono</label> 
+        <div class="inputform-field3">
+            <mat-form-field appearance="fill" class="mi-form-field">
+                <input matInput placeholder="Escriba aqui" formControlName="telefono">
+            </mat-form-field>
+        </div> 
+       
+    </div>
+    <div class="contenido">
+        <label >Fecha</label>
+      <div class="inputform-field4">
+        <mat-form-field class="mi-form-field">
+            <mat-label>Elija una fecha</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="fecha">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+   
+  <div class="contenido">
+    <label for="">Ciudad</label>
+   <div class="inputform-field5">
+    <mat-form-field class="mi-form-field" aparence="outline">
+        <mat-label>Ciudad</mat-label>
+        <input type="text"
+               placeholder="Pick one"
+               aria-label="Number"
+               matInput
+               formControlName="ciudad_Estado"
+               [matAutocomplete]="auto">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option}}
+            </mat-option>
+            </mat-autocomplete>
+    </mat-form-field>
+   </div>
+  </div>
+ <div class="botonEnviar">
+    <button type="button" (click)="EnviarF()" mat-raised-button color="accent">Accent</button>
+ </div>
+
+     
+</form>

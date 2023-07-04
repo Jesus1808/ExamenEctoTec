@@ -1,0 +1,67 @@
+.logotipo{
+  border-radius: 60px; /* Ajusta el valor según la curvatura de los bordes */
+  background-color:#20b31f; /* Establece el fondo blanco */
+  display:flex;
+  margin-left: 80px;
+  margin-right: 80px;
+  margin-top: 80px;
+  margin-bottom: 40px;
+  height: 230px; /* Establece un largo de 200 píxeles */
+  // padding: 10px; /* Opcional: Agrega espacio interno al contenido del div */
+  
+}
+
+.columna-titulo {
+  flex: 1; /* Ocupa el 50% del ancho del contenedor */
+  padding: 60px; /* Agrega espacio interno alrededor del título */
+  
+}
+
+.titulo{
+  font-size: 7rem;
+  text-align: center;
+}
+.columna-imagen {
+  flex: 1; /* Ocupa el 50% del ancho del contenedor */
+  padding: 25px; /* Agrega espacio interno alrededor de la imagen */
+  display: flex; /* Alinear la imagen en la parte inferior */
+  justify-content: flex-end; /* Alinear la imagen a la derecha */
+  align-items: flex-end; /* Alinear la imagen en la parte inferior */
+
+}
+
+.columna-imagen img {
+  max-width: 100%; /* Asegura que la imagen no se salga de la columna */
+  max-height: 100%; /* Asegura que la imagen no se salga de la columna */
+}
+.contenido{
+  display:flex;
+  flex-direction:row;
+  align-items: center;
+  margin-left: 100px;
+}
+.mi-form-field {
+  width: 500px; /* Ajusta el valor del ancho según tus necesidades */
+}
+.inputform-field{
+  margin-left: 30px;
+}
+.inputform-field2{
+  margin-left: 43px;
+}
+.inputform-field3{
+  margin-left: 25px;
+}
+.inputform-field4{
+  margin-left: 38px;
+}
+.inputform-field5{
+  margin-left: 30px;
+}
+.botonEnviar{
+  display:flex;
+  flex-direction:row;
+  align-items: center;
+  margin-left: 400px;
+}
+

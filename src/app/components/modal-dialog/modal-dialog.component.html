@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>Contacto</h1>
+<div mat-dialog-content>
+ Se encontraron los siguientes errores en sus datos de contacto:
+  <ul>
+    <li *ngIf="data.nombre.length === 0">
+      <span ></span> Nombre es requerido
+    </li>
+    <li>
+      <span *ngIf="data.email.length === 0"></span> el email es requerido
+    </li>
+    <li>
+      <span *ngIf="data.telefono.length === 0"></span> el telefono es requerido
+    </li>
+    <li>
+        <span *ngIf="data.fecha.length === 0"></span> la fecha es requerida
+      </li>
+      <li>
+        <span *ngIf="data.ciudad_Estado.length === 0"></span> la ciudad/Estado es requerido
+      </li>
+      <br>
+      
+      <label>Por favor corrija los errores los errores para continuar</label>
+     
+  </ul>
+</div>
