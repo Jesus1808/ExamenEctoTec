@@ -17,13 +17,23 @@ import { ModalDialogComponent } from '../modal-dialog/modal-dialog.component';
 export class FormularioEnvioComponent implements OnInit{
 //#region Propiedades
 public FormularioEnvioForm: FormGroup = this._FormularioEnvioFormBuilder.group(FormularioEnvioControls);
+minDate: Date;
 
 //#endregion
 
  constructor (private _FormularioEnvioFormBuilder:FormBuilder,private _api:ApiService, public dialog: MatDialog){
   this.ObtenerCiudadesEstados();
-  
+  const currentYear = new Date().getFullYear();
+  this.minDate = new Date(currentYear - 100, 0, 1);
+
+
  }
+
+
+mostrarContenido : boolean = true;
+mostrarMensaje :boolean = false;
+Nombre : string = '';
+Correo : string = '';
 
  options: string[] = [];
 filteredOptions: Observable<string[]> | undefined= new  Observable<string[]>();
@@ -46,7 +56,17 @@ filteredOptions: Observable<string[]> | undefined= new  Observable<string[]>();
 
   if(this.FormularioEnvioForm.valid){
     
-    this._api.EnviarFormulario(this.FormularioEnvioForm.value).subscribe();
+    if(this.FormularioEnvioForm.get("fecha")?.value){
+      this._api.EnviarFormulario(this.FormularioEnvioForm.value).subscribe(m => {
+        if(m.exito){
+          this.mostrarContenido = false;
+          this.mostrarMensaje = true;
+          this.Nombre = this.FormularioEnvioForm.get("nombre")?.value;
+          this.Correo = this.FormularioEnvioForm.get("email")?.value;
+          
+        }
+      });
+    }
   }
   else{
   this.FormularioEnvioForm.markAllAsTouched();
